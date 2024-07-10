@@ -8,11 +8,11 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 # Instruction to run project
-npm install
-npm run dev
+- npm install
+- npm run dev
 
 # Software used
-React js
-tailwind css
-MediaRecorder API
-fontawesome and google font
+- React js
+- tailwind css
+- MediaRecorder API
+- fontawesome and google font
