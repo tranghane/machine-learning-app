@@ -1,6 +1,7 @@
 import React from "react";
 
-export default function HomePage(){
+export default function HomePage(props){
+    const {setAudioStream, setFile} = props; //get the props as function
     return(
         <main className='flex-1 p-4 flex flex-col gap-3 sm:gap-4 md:gap-5
          justify-center text-center pb-20'>
@@ -17,7 +18,12 @@ export default function HomePage(){
                 <i className="fa-solid fa-microphone-lines"></i>
               </button>
               <p className="text-base">Or <label className="text-blue-400 cursor-pointer hover:text-blue-600 duration-200">
-                    upload <input className="hidden" type="file" accept=".mp3, .wave"/>
+                    upload <input onChange={(e) => {
+                      //if the upload has changed, aka a file was uploaded, get that file
+                      const tempFile = e.target.files[0] 
+                      //and store that file using setFile in useState, app.jsx
+                      setFile(tempFile)
+                    }} className="hidden" type="file" accept=".mp3, .wave"/>
                     </label> a mp3 file</p>
 
         </main>
