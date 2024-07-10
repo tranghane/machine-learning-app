@@ -43,6 +43,7 @@ export default function HomePage(props) {
         </label>{" "}
         a mp3 file
       </p>
+      <p className="italic text-slate-400"> pour honey in one's ear </p>
     </main>
   );
 }
