@@ -8,7 +8,7 @@ function App() {
   // 2 variable for upload a file or record
   const [file, setFile] = useState(null)
   const [audioStream, setAudioStream] = useState(null)
-  const [output, setOutput] = useState(null)
+  const [output, setOutput] = useState(true)
   const [loading, setLoading] = useState(true)
 
 
