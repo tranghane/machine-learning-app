@@ -28,10 +28,10 @@ function App() {
         <Header/>
         {isAudioAvailable ? ( //if there's audio, display files
           <FileDisplay handleAudioReset={handleAudioReset} file={file} audioStream={audioStream}/>
-        ) : (<HomePage setFile={setFile} setAudioStream={setAudioStream}/>)} //pass in setters as props
+        ) : (<HomePage setFile={setFile} setAudioStream={setAudioStream}/>)} 
+        {/* pass in setters as props */}
 
       </section>
-      <h1 className='text-green-400'>hello</h1>
       <footer></footer>
     </div>
   )
