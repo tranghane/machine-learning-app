@@ -20,7 +20,7 @@ export default function HomePage(props) {
     //checks if the "MediaRecorder" object is available in the browser window.
     try {
       // request permission to access the user’s microphone
-      const streamData = navigator.mediaDevices.getUserMedia({
+      const streamData = await navigator.mediaDevices.getUserMedia({ //miss the await
         audio: true,  
         video: false
       })
@@ -105,7 +105,7 @@ export default function HomePage(props) {
       >
         <p className="text-blue-400">{recordingStatus === 'inactive' ? 'Record' : 'Stop recording'}</p>
         <div className="flex items-center gap-2">
-          {duration && (
+          {duration !== 0 && (
             <p className="text-sm "> {duration}s</p>
           )}
           <i className={"fa-solid fa-microphone-lines duration-200 " + (recordingStatus === 'recording' ? ' text-rose-300' : ' ')}></i>

@@ -6,16 +6,19 @@ export default function FileDisplay(props) {
     //similar to HomePage.jsx but with a file display
     <main
       className="flex-1 p-4 flex flex-col gap-3 sm:gap-4
-         justify-center text-center pb-20 w-fit max-w-full mx-auto"
+         w-72 sm:w-96
+         justify-center text-center pb-20 max-w-full mx-auto"
     >
       <h1 className="font-semibold text-4xl sm:text-5xl md:text-6xl">
         {/* <span>Sugoi</span><span className='text-blue-400'>Speech</span><span className='text-purple-500'>Scribe</span> */}
-        <span className="text-blue-400">Your</span>
+        <span className="text-blue-400">Your </span> 
         <span className="text-purple-500">File</span>
       </h1>
-      <div className="mx-auto flex flex-col text-left my-4">
+      <div className=" flex flex-col text-left my-4">
         <h3 className="font-semibold"> Name</h3>
-        <p>{file.name}</p>
+        {/* check if file exist before reading name */}
+        <p>{file ? file?.name : "Custome Audio" }</p> 
+        
       </div>
 
       <div className="flex items-center justify-between gap-4">
