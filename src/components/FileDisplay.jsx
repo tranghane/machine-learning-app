@@ -5,7 +5,7 @@ export default function FileDisplay(props) {
   return (
     //similar to HomePage.jsx but with a file display
     <main
-      className="flex-1 p-4 flex flex-col gap-3 sm:gap-4 md:gap-5
+      className="flex-1 p-4 flex flex-col gap-3 sm:gap-4
          justify-center text-center pb-20 w-fit max-w-full mx-auto"
     >
       <h1 className="font-semibold text-4xl sm:text-5xl md:text-6xl">
