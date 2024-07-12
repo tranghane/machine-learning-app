@@ -8,7 +8,9 @@ export default function HomePage(props) {
   const [audioChunks, setAudioChunks] = useState ([])
   const [duration, setDuration] = useState(0)
 
-  const mediaRecorder = useRef(null)
+  //useState re-render the component when the state value change
+  //useRef does not cause re-render when value change
+  const mediaRecorder = useRef(null) //similar to useState
   const mimeType = 'audio/webm' //mimeType for media recorder
 
   async function startRecording() {
@@ -45,6 +47,10 @@ export default function HomePage(props) {
         localAudioChunks.push(event.data)
     }
     setAudioChunks(localAudioChunks)
+  }
+
+  async function stopRecording() {
+    
   }
   return (
     <main
