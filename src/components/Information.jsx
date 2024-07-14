@@ -25,9 +25,20 @@ export default function Information(props) {
   }
 
   function generateTranslation() {
+    if (translating || (toLanguage === 'Select language')) {
+      return 
+    }
 
+    //start the translating
+    setTranslating(true)
+
+    Worker.current.postMessage({
+      text: output.map((val) => val.text),
+      src_language: 'eng_Latn',
+      tgt_lang: toLanguage
+    })
   }
-  
+
   //to pass down to Transciption component
   const textElement =
     tab === "transcription" ? output.map((val) => val.text) : translation || "";
