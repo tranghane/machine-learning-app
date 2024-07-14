@@ -9,26 +9,25 @@ export default function Information(props) {
   //for translation
   const [translation, setTranslation] = useState(null);
   const [translating, setTranslating] = useState(null);
-  const [toLanguage, setToLanguage] = useState(null);
+  const [toLanguage, setToLanguage] = useState("Select Language");
 
   function handleCopy() {
     navigator.clipboard.writeText();
   }
 
   function handleDownload() {
-    const element = document.createElement('a')
-    const file = new Blob([], {type: 'text/plain'});
+    const element = document.createElement("a");
+    const file = new Blob([], { type: "text/plain" });
     element.href = URL.createObjectURL(file);
-    element.download(`sugoispeechscribe_${(new Date()).toDateString}.txt`);
+    element.download(`sugoispeechscribe_${new Date().toDateString}.txt`);
     document.body.appendChild(element);
     element.click();
   }
 
-  function generateTranslation() {
-
-  }
+  function generateTranslation() {}
   //to pass down to Transciption component
-  const textElement = tab === 'transcription' ? output.map(val => val.text) : translation || ''
+  const textElement =
+    tab === "transcription" ? output.map((val) => val.text) : translation || "";
   return (
     <main
       className="flex-1 p-4 flex flex-col gap-3 sm:gap-4
@@ -72,16 +71,30 @@ export default function Information(props) {
       </div>
       <div className="my-8 flex flex-col">
         {tab === "transcription" ? (
-          <Transcription {...props} textElement = {textElement} />
+          <Transcription {...props} textElement={textElement} />
         ) : (
-          <Translation {...props} />
+          <Translation
+            {...props}
+            toLanguage={toLanguage}
+            translating={translating}
+            translation={translation}
+            setTranslating={setTranslating}
+            setTranslation = {setTranslation}
+            setToLanguage = {setToLanguage}
+          />
         )}
       </div>
       <div className="flex items=center gap-4 mx-auto">
-        <button title="Copy" className="bg-white hover:text-blue-500 duration-200 text-blue-300 px-2 rounded aspect-square grid place-items-center">
+        <button
+          title="Copy"
+          className="bg-white hover:text-blue-500 duration-200 text-blue-300 px-2 rounded aspect-square grid place-items-center"
+        >
           <i className="fa-solid fa-copy"></i>
         </button>
-        <button title="Dowload" className="bg-white hover:text-blue-500 duration-200 text-blue-300 px-2 rounded aspect-square grid place-items-center">
+        <button
+          title="Dowload"
+          className="bg-white hover:text-blue-500 duration-200 text-blue-300 px-2 rounded aspect-square grid place-items-center"
+        >
           <i className="fa-solid fa-download"></i>
         </button>
       </div>
