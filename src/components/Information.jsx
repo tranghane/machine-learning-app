@@ -24,7 +24,10 @@ export default function Information(props) {
     element.click();
   }
 
-  function generateTranslation() {}
+  function generateTranslation() {
+
+  }
+  
   //to pass down to Transciption component
   const textElement =
     tab === "transcription" ? output.map((val) => val.text) : translation || "";
@@ -77,10 +80,11 @@ export default function Information(props) {
             {...props}
             toLanguage={toLanguage}
             translating={translating}
-            translation={translation}
+            textElement={textElement}
             setTranslating={setTranslating}
             setTranslation = {setTranslation}
             setToLanguage = {setToLanguage}
+            generateTranslation = {generateTranslation}
           />
         )}
       </div>
