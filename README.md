@@ -1,4 +1,4 @@
-#Demo:
+# Demo:
 https://tranghane.github.io/sugoi-speech-scribe/
 
 # Instruction to run project
