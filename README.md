@@ -12,3 +12,4 @@ https://tranghane.github.io/machine-learning-app/
 - tailwind css
 - MediaRecorder API
 - fontawesome and google font
+- testing
