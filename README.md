@@ -1,5 +1,6 @@
 # Demo:
 https://tranghane.github.io/sugoi-speech-scribe/
+https://tranghane.github.io/machine-learning-app/
 
 # Instruction to run project
 - npm install
