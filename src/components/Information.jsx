@@ -15,6 +15,7 @@ export default function Information(props) {
 
   useEffect(() => {
     if (!worker.current) {
+      //create a new worker thread that runs the code in translate.worker.js
       worker.current = new Worker(
         new URL("../utils/translate.worker.js", import.meta.url),
         {
@@ -42,6 +43,8 @@ export default function Information(props) {
       }
     };
 
+    //event listener to receive messages from the worker
+    //calls the onMessageReceived function when a message is received
     worker.current.addEventListener("message", onMessageReceived);
 
     return () =>
@@ -64,6 +67,10 @@ export default function Information(props) {
     document.body.appendChild(element)
     element.click()
 }
+
+
+  //to pass down to Translation component
+  //sends a message to the worker with the text to be translated
   function generateTranslation() {
     if (translating || toLanguage === "Select language") {
       return;
@@ -72,7 +79,7 @@ export default function Information(props) {
     //start the translating
     setTranslating(true);
 
-    worker.current.postMessage({
+    worker.current.postMessage({ 
       text: output.map((val) => val.text),
       src_language: "eng_Latn",
       tgt_lang: toLanguage,
